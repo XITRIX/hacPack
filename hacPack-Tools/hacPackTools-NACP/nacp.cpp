@@ -548,6 +548,7 @@ void nacp_tool::createnacp(const string *input_filepath, const string *output_fi
         {
             if (eElement->GetText() != NULL)
             {
+                errno = 0;
                 nacp.PresenceGroupId = strtoull(eElement->GetText(), NULL, 16);
                 if (nacp.PresenceGroupId < 0x0100000000000000 || nacp.PresenceGroupId > 0x01ffffffffffffff || errno == ERANGE)
                 {
